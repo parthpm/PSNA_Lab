@@ -1,7 +1,9 @@
 #include<iostream>
 #include<iomanip>
+#include<math.h>
 using namespace std;
 float quad(float a,float b,float c,float x);
+float absu(float f);
 
 int main()
 {
@@ -14,6 +16,7 @@ int main()
     int accuracy;
     cout<<"Enter accuracy\n";
     cin>>accuracy;
+    float arr=pow(10,-accuracy);
 
 
 
@@ -29,7 +32,8 @@ int main()
 
 
     int t=100;
-    while(t--)
+
+    do
     {
         m=(left+right)/2;
         result=quad(a,b,c,m);
@@ -42,9 +46,9 @@ int main()
     else
         right=m;
 
-    }
+    }while(absu(result-quad(a,b,c,(left+right)/2))<arr);
 
-    cout<<"Answer is :"<<setprecision(accuracy)<<m;
+    cout<<"Answer is :"<<m;
 
 
 
@@ -56,6 +60,18 @@ int main()
 float quad(float a,float b,float c,float x)
 {
     return (a*x*x + b*x +c);
+}
+
+float absu(float f)
+{
+    if(f>0)
+    {
+        return f;
+    }
+    else
+    {
+        return -f;
+    }
 }
 
 /*float compute(float left,float right,float a,float b,float c,float x)
