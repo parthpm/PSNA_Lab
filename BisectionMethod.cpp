@@ -17,12 +17,13 @@ int main()
     cout<<"Enter accuracy\n";
     cin>>accuracy;
     float arr=pow(10,-accuracy);
+    cout<<"\n"<<arr;
 
 
 
     cout<<"Enter left and right limit respectively:\n";
     cin>>left>>right;
-    if(quad(a, b, c,left)<quad( a, b, c,right))
+    if(quad(a, b, c,left)>quad( a, b, c,right))
     {
         float temp;
         temp=left;
@@ -30,6 +31,7 @@ int main()
         right=temp;
     }
 
+    float temp;
 
     int t=100;
 
@@ -37,16 +39,18 @@ int main()
     {
         m=(left+right)/2;
         result=quad(a,b,c,m);
-       cout<<m<<"\n";
+      // cout<<" M is:"<<m<<"\n";
 
     if(result>0)
     {
-       left=m;
+       right=m;
     }
     else
-        right=m;
+        left=m;
+    temp=quad(a,b,c,(left+right)/2);
+    //cout<<"Temp is:" <<temp;
 
-    }while(absu(result-quad(a,b,c,(left+right)/2))<arr);
+    }while(absu(result-temp)>arr);
 
     cout<<"Answer is :"<<m;
 
