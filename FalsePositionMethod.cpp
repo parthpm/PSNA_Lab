@@ -20,9 +20,12 @@ int main()
     cout<<"\n"<<arr;
 
 
+    do
+    {
+            cout<<"Enter left and right limit respectively:\n";
+      cin>>left>>right;
+    }while(quad(a, b, c,left)*quad( a, b, c,right)>=0);
 
-    cout<<"Enter left and right limit respectively:\n";
-    cin>>left>>right;
     if(quad(a, b, c,left)>quad( a, b, c,right))
     {
         float temp;

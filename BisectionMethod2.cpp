@@ -5,6 +5,7 @@ using namespace std;
 float compute(int a[],int deg,float value);
 float absu(float f);
 
+
 int main()
 {
     float result;
@@ -13,7 +14,7 @@ int main()
     cout<<"Enter the degree of the eqn\n";
     cin>>degree;
 
-    int a[degree];
+    int a[degree+1];
     int temp=degree;
 
     while(temp>=0)
@@ -30,9 +31,12 @@ int main()
     cout<<"\n"<<arr;
 
 
+    do
+    {
+            cout<<"Enter left and right limit respectively:\n";
+      cin>>left>>right;
+    }while(compute(a,degree,left)*compute(a,degree,right)>=0);
 
-    cout<<"Enter left and right limit respectively:\n";
-    cin>>left>>right;
     if(compute(a,degree,left)>compute(a,degree,right))
     {
         float temp;
@@ -56,7 +60,7 @@ int main()
     else
         left=m;
     temp1=compute(a,degree,(right+left)/2);
-    //cout<<"Temp is:" <<temp;
+    cout<<"Temp is:" <<m<<endl;
 
     }while(absu(result-temp1)>arr);
 

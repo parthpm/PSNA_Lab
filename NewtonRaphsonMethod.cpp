@@ -40,6 +40,7 @@ int main()
         x1=x0-compute(a,degree,x0)/df1(a,degree,x0);
         prev=x0;
         x0=x1;
+           cout<<"Temp is: "<<x1<<endl;
 
     }while(absu(x1-prev)>0.0000001);
     cout<<"Answer is: "<<x1;
